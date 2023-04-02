@@ -1,0 +1,14 @@
+services:
+  nginx:
+    image: nginx-reverse-proxy:latest
+    ports:
+      - 80:80
+    restart: always
+    depends_on:
+      - demo
+
+  demo:
+    image: demo:0.0.1-SNAPSHOT
+    ports:
+      - 8080:8080
+    restart: always
